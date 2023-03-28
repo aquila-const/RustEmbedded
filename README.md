@@ -54,7 +54,6 @@ file target/avr-atmega328p/debug/arduino-test.elf
 This will link the file and it will now be ready to flash correctly and should work. Cargo is able to build a release for this program. For that replace debug with release:
 ```
 target/avr-atmega328p/release/arduino-test.elf
-
 ```
 
 ## Issues to be fixed
