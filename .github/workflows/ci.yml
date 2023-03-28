@@ -45,10 +45,12 @@ jobs:
       - name: Install Rust
         uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
-          toolchain: stable
-          components: check
+          toolchain: nightly
+          components: clippy
+          override: true
       - name: Install libs
         run: sudo apt-get update && sudo apt-get install -y avrdude libudev-dev
       - name: Check arvdude
-        run: |
-          cargo check --manifest-path ravedude/Cargo.toml
+        run: cat /etc/avrdude.conf
+      - name: Check build
+        run: cargo build
