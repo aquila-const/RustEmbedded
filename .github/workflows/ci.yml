@@ -32,7 +32,7 @@ jobs:
           toolchain: nightly-2022-06-13
           components: rust-src
       - name: Install avr-gcc, binutils, and libc
-        run: sudo apt-get install -y avr-libc binutils-avr gcc-avr pkg-config build-essential
+        run: sudo apt-get install -y avr-libc binutils-avr gcc-avr pkg-config build-essential avrdude
       - name: Compile board crate
         if: "${{ matrix.m.type == 'board' && !matrix.m.examples }}"
         run: cd "arduino-hal/" && cargo build --features "${{ matrix.m.name }}"
@@ -47,9 +47,8 @@ jobs:
         with:
           toolchain: nightly
           components: clippy
-          override: true
       - name: Install libs
-        run: sudo apt-get update && sudo apt-get install -y avrdude libudev-dev
+        run: sudo apt-get update && sudo apt-get install -y avr-libc binutils-avr gcc-avr pkg-config build-essential avrdude libudev-dev
       - name: Check arvdude
         run: cat /etc/avrdude.conf
       - name: Check build
