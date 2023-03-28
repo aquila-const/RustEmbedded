@@ -1,7 +1,7 @@
-`Rustduino`
+RustEmbedded
 ==================
-[`avrdude`] a toolset cli for flashing to hardware.
-[`arduino`]
+`avrdude` a toolset cli for flashing to hardware.
+
 ## Requirements
 You will need the avrdude toolset.
 
